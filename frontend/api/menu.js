@@ -1,16 +1,16 @@
-import sql from '../lib/db';
-
-export default async function handler(req, res) {
-  try {
-    const result = await sql`SELECT NOW()`;
-
-    res.status(200).json({
-      status: "ok",
-      db: result
-    });
-  } catch (err) {
-    res.status(500).json({
-      error: err.message
-    });
-  }
-}
+module.exports = (req, res) => {
+  res.status(200).json([
+    {
+      id: 1,
+      name: "Croissant Especial",
+      description: "Croissant amanteigado com recheio premium.",
+      price: 24.9
+    },
+    {
+      id: 2,
+      name: "Cappuccino Cremoso",
+      description: "Café especial com leite vaporizado.",
+      price: 14.5
+    }
+  ]);
+};
